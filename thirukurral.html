@@ -51,7 +51,27 @@
 							$.each(data.KuralSet.Kural, function (i, Kural) {
 								var id="kural"+i;
 								$("tbody").append("<tr><th scope='row'>" + Kural.Number + "</th><td>" + Kural.Line1 + "<br />" + Kural.Line2 + "<button  class = 'kuralbutton btn btn-default'>Play Audio</td><td>"+Kural.Translation+"<input type='submit' id='"+id+"' onclick='playaudio(event)'  class='englishaudio btn btn-default value='Play Audio'/></td></tr>" );
-							
+								axios({
+									baseURL: endpoint,
+									method: 'post',
+									headers: {
+										'Ocp-Apim-Subscription-Key': subscriptionKey,
+										'Ocp-Apim-Subscription-Region': location,
+										'Content-type': 'application/json',
+										
+									},
+									params: {
+										'api-version': '3.0',
+										'from': 'en',
+										'to': ['ta', 'hi']
+									},
+									data: [{
+										'text': Kural.Translation
+									}],
+									responseType: 'json'
+								}).then(function(response){
+									console.log(JSON.stringify(response.data, null, 4));
+								})
 							});
         
 						});
