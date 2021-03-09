@@ -27,21 +27,44 @@
 	<script src="js/custom.js"></script>
 	<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-
+	<script type="text/javascript" src="exp.json"></script>
 	<!-- <script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js"> -->
 	</script>
 
 
 	<script>
 		$(document).ready(function () {
-    
-	var subscriptionKey = "ccfe53df0b1d443fbc00dd1d7ec88d98";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+			function loadJSON(callback) {
 
-// Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
-var location = "eastus";
+		var xobj = new XMLHttpRequest();
+		xobj.overrideMimeType("application/json");
+		xobj.open('GET', 'exp.json', true);
+		xobj.onreadystatechange = function() {
+			if (xobj.readyState == 4 && xobj.status == "200") {
 
+				// .open will NOT return a value but simply returns undefined in async mode so use a callback
+				callback(xobj.responseText);
+
+			}
+		}
+		xobj.send(null);
+
+		}
+
+		// Call to function with anonymous callback
+		loadJSON(function(response) {
+		// Do Something with the response e.g.
+		jsonresponse = JSON.parse(response);
+
+		// Assuming json data is wrapped in square brackets as Drew suggests
+		console.log(jsonresponse['1']);
+
+		});
+
+
+
+
+		
 			$('#submit').click(function (e) {
 				e.preventDefault();
 
@@ -59,27 +82,7 @@ var location = "eastus";
 							$.each(data.KuralSet.Kural, function (i, Kural) {
 								var id="kural"+i;
 								$("tbody").append("<tr><th scope='row'>" + Kural.Number + "</th><td>" + Kural.Line1 + "<br />" + Kural.Line2 + "<button  class = 'kuralbutton btn btn-default'>Play Audio</td><td>"+Kural.Translation+"<input type='submit' id='"+id+"' onclick='playaudio(event)'  class='englishaudio btn btn-default value='Play Audio'/></td></tr>" );
-								axios({
-									baseURL: endpoint,
-									method: 'post',
-									headers: {
-										'Ocp-Apim-Subscription-Key': subscriptionKey,
-										'Ocp-Apim-Subscription-Region': location,
-										'Content-type': 'application/json',
-										
-									},
-									params: {
-										'api-version': '3.0',
-										'from': 'en',
-										'to': ['ta', 'hi']
-									},
-									data: [{
-										'text': Kural.Translation
-									}],
-									responseType: 'json'
-								}).then(function(response){
-									console.log(JSON.stringify(response.data, null, 4));
-								})
+								translateText(Kural.Translation);
 							});
         
 						});
@@ -254,6 +257,9 @@ var location = "eastus";
    }
   
   </script>
+
+
+
 
 
 </html>
