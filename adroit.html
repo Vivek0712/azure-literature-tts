@@ -43,29 +43,29 @@
             resumeButton.hide();
 
             pauseButton.on("click", function () {
-      
+                player.pause();
                 pauseButton.hide();
             resumeButton.show();
 
       });
 
       resumeButton.on("click", function () {
-    
+        player.resume();
         pauseButton.show();
             resumeButton.hide();
 
       });
 
-            if (player != undefined){
-                player.pause();
-            }
+            
+                
+            
             $('#english').show();
                 $('#tamil').hide();
 
             $('#lang').on('change', function() {
                 pauseButton.hide();
             resumeButton.hide();
-
+            player.pause();
 		
             if ($('#lang :selected').text() == "English")
             {
