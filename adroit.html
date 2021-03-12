@@ -34,7 +34,7 @@
 
 	<script>
 		$(document).ready(function () {
-
+	var SpeechSDK =  window.SpeechSDK;
            var  player = new SpeechSDK.SpeakerAudioDestination();
         player.pause()
             pauseButton = $(".pauseButton");
@@ -63,7 +63,8 @@
             $('#lang').on('change', function() {
  
 
-			player.pause();
+		player.pause();
+		
             if ($('#lang :selected').text() == "English")
             {
                 $('#english').show();
@@ -203,6 +204,13 @@
       subscriptionKey = "ccfe53df0b1d443fbc00dd1d7ec88d98";
       serviceRegion = "eastus";
       startSpeakTextAsyncButton = $(event.target);
+      startSpeakTextAsyncButton.hide();
+      pauseButton = $(".pauseButton");
+      resumeButton = $(".resumeButton");
+	   
+      pauseButton.show();
+      resumeButton.show();
+	   
 	  console.log(startSpeakTextAsyncButton);
 	  let inputText = startSpeakTextAsyncButton.parent().text();
 		console.log(inputText);
