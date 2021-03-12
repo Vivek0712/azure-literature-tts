@@ -42,14 +42,14 @@
             pauseButton.hide()
             resumeButton.hide()
 
-            pauseButton.addEventListener("click", function () {
+            pauseButton.on("click", function () {
                 player.pause();
                 pauseButton.hide()
             resumeButton.show()
 
       });
 
-      resumeButton.addEventListener("click", function () {
+      resumeButton.on("click", function () {
         player.resume();
         pauseButton.show()
             resumeButton.hide()
