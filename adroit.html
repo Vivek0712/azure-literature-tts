@@ -31,47 +31,19 @@
 	<!-- <script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js"> -->
 	</script>
 
-
+<!-- 
 	<script>
        
 		$(document).ready(function () {
 
-            pauseButton = $(".pauseButton");
-            resumeButton = $(".resumeButton");
-            pauseButton.hide();
-            resumeButton.hide();
-
-           
-
-            
-                
-            
-            $('#english').show();
-                $('#tamil').hide();
-
-            $('#lang').on('change', function() {
-                pauseButton.hide();
-            resumeButton.hide();
-            pausePlayer();
-		
-            if ($('#lang :selected').text() == "English")
-            {
-                $('#english').show();
-                $('#tamil').hide();
-            }
-            else{
-                $('#english').hide();
-                $('#tamil').show();
-            }
-
-        });
+          
 	
 
 		});
 
 	</script>
 
-
+ -->
 
 </head>
 
@@ -180,7 +152,35 @@
 </body>
 
 <script>
- 
+            pauseButton = $(".pauseButton");
+            resumeButton = $(".resumeButton");
+            pauseButton.hide();
+            resumeButton.hide();
+
+           
+
+            
+                
+            
+            $('#english').show();
+                $('#tamil').hide();
+
+            $('#lang').on('change', function() {
+                pauseButton.hide();
+            resumeButton.hide();
+            pausePlayer();
+		
+            if ($('#lang :selected').text() == "English")
+            {
+                $('#english').show();
+                $('#tamil').hide();
+            }
+            else{
+                $('#english').hide();
+                $('#tamil').show();
+            }
+
+        });
    function playaudio(event){
     // subscription key and region for speech services.
     var subscriptionKey, serviceRegion;
