@@ -34,9 +34,7 @@
 
 	<script>
 		$(document).ready(function () {
-	var SpeechSDK =  window.SpeechSDK;
-           var  player = new SpeechSDK.SpeakerAudioDestination();
-        player.pause()
+
             pauseButton = $(".pauseButton");
             resumeButton = $(".resumeButton");
             pauseButton.hide()
@@ -62,7 +60,7 @@
 
             $('#lang').on('change', function() {
  
-
+		synthesizer.close();
 		player.pause();
 		
             if ($('#lang :selected').text() == "English")
@@ -209,7 +207,7 @@
       resumeButton = $(".resumeButton");
 	   
       pauseButton.show();
-      resumeButton.show();
+      resumeButton.hide();
 	   
 	  console.log(startSpeakTextAsyncButton);
 	  let inputText = startSpeakTextAsyncButton.parent().text();
