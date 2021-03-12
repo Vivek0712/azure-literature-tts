@@ -33,35 +33,39 @@
 
 
 	<script>
+          var synthesizer;
+    var player;
 		$(document).ready(function () {
 
             pauseButton = $(".pauseButton");
             resumeButton = $(".resumeButton");
-            pauseButton.hide()
-            resumeButton.hide()
+            pauseButton.hide();
+            resumeButton.hide();
 
             pauseButton.on("click", function () {
-                player.pause();
-                pauseButton.hide()
-            resumeButton.show()
+      
+                pauseButton.hide();
+            resumeButton.show();
 
       });
 
       resumeButton.on("click", function () {
-        player.resume();
-        pauseButton.show()
-            resumeButton.hide()
+    
+        pauseButton.show();
+            resumeButton.hide();
 
       });
 
-
+            if (player != undefined){
+                player.pause();
+            }
             $('#english').show();
                 $('#tamil').hide();
 
             $('#lang').on('change', function() {
- 
-		synthesizer.close();
-		player.pause();
+                pauseButton.hide();
+            resumeButton.hide();
+
 		
             if ($('#lang :selected').text() == "English")
             {
@@ -189,13 +193,13 @@
 </body>
 
 <script>
-   
+ 
    function playaudio(event){
     // subscription key and region for speech services.
     var subscriptionKey, serviceRegion;
     var SpeechSDK =  window.SpeechSDK;
-    var synthesizer;
-    var player;
+    // var synthesizer;
+    // var player;
 
     
       
