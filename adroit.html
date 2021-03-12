@@ -156,31 +156,13 @@
             resumeButton = $(".resumeButton");
             pauseButton.hide();
             resumeButton.hide();
-
+   $('#english').show();
+                $('#tamil').hide();
            
 
             
                 
-            
-            $('#english').show();
-                $('#tamil').hide();
-
-            $('#lang').on('change', function() {
-                pauseButton.hide();
-            resumeButton.hide();
-            pausePlayer();
-		
-            if ($('#lang :selected').text() == "English")
-            {
-                $('#english').show();
-                $('#tamil').hide();
-            }
-            else{
-                $('#english').hide();
-                $('#tamil').show();
-            }
-
-        });
+          
    function playaudio(event){
     // subscription key and region for speech services.
     var subscriptionKey, serviceRegion;
@@ -287,6 +269,26 @@
    
 
    }
+	
+	=  
+         
+
+            $('#lang').on('change', function() {
+                pauseButton.hide();
+            resumeButton.hide();
+            pausePlayer();
+		
+            if ($('#lang :selected').text() == "English")
+            {
+                $('#english').show();
+                $('#tamil').hide();
+            }
+            else{
+                $('#english').hide();
+                $('#tamil').show();
+            }
+
+        });
   
   </script>
 
