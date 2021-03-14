@@ -81,7 +81,7 @@
 for(var i=1;i<=13;i++){
     
     
-    $("tbody").append("<tr><td>" + i + "</td><td>" + jsonresponse[i].poem+"<input type='submit'  onclick='playaudio(event)'  class='kuralaudio btn btn-default' value='Kural Audio'></td><td>"+jsonresponse[i].tamil+"<input type='submit'  onclick='playaudio(event)'  class='tamilaudio btn btn-default' value='Tamil Audio'></td><td>"+jsonresponse[i].english+"<input type='submit'  onclick='playaudio(event)'  class='englishaudio btn btn-default' value='English Audio'></td><td>"+jsonresponse[i].hindi+"<input type='submit'  onclick='playaudio(event)'  class='englishaudio btn btn-default' value='Hindi Audio'></td></tr><br/>" );
+    $("tbody").append("<tr><td>" + i + "</td><td>" + jsonresponse[i].poem+"<input type='submit'  onclick='playaudio(event)'  class='kuralaudio btn btn-default' value='Poem Audio'></td><td>"+jsonresponse[i].tamil+"<input type='submit'  onclick='playaudio(event)'  class='tamilaudio btn btn-default' value='Tamil Audio'></td><td>"+jsonresponse[i].english+"<input type='submit'  onclick='playaudio(event)'  class='englishaudio btn btn-default' value='English Audio'></td><td>"+jsonresponse[i].hindi+"<input type='submit'  onclick='playaudio(event)'  class='englishaudio btn btn-default' value='Hindi Audio'></td></tr><br/>" );
     
 }
             $('#chapter').on('change', function() {
